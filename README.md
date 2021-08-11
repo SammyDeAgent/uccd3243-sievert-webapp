@@ -9,7 +9,7 @@ JavaEE Enviroment IDE: `Eclipse`<br>
 Java version: `11.0.7`
 
 **Important Notes**<br>
-The SQL for generating the database schema can be found under the folder named `employees_backup.sql`<br>
+The SQL for generating the database schema can be found under the folder `sql` and named `employees_backup.sql`<br>
 The database follows the directory: `database/schema/tables` - `employees/employees/<tables>`<br><br>
 For JavaEE Environment, the `<jta-data-source>` attribute in `persistence.xml` is named `java:/employeedeptsys`<br>
 Please make sure the connection details are correct.
