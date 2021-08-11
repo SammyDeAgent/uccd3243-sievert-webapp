@@ -3,7 +3,7 @@ A pharmaceuticacl themed web application that emulates administrative function o
 Basic CRUD functions and misc functions are implemented, though there would be some other functions might be missing that alters the details.
 
 Web Server: `Jboss` or `WildFly v17`<br>
-Database System: `PostgreSQL`<br>
+Database System: `PostgreSQL` via u:`postgres` p:`postgresql`<br>
 Connection: `JDBC JPA Persistence API`<br>
 JavaEE Enviroment IDE: `Eclipse`<br>
 Java version: `11.0.7`
