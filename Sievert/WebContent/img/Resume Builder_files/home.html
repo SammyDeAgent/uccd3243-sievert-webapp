@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html class="fc-widget-small" lang="en-us"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Freshchat</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <!-- base href="https://wchat.freshchat.com/" -->
+<meta name="hotline-web/config/environment" content="%7B%22ember-cli-mirage%22%3A%7B%22enabled%22%3Afalse%2C%22usingProxy%22%3Afalse%2C%22useDefaultPassthroughs%22%3Atrue%7D%2C%22modulePrefix%22%3A%22hotline-web%22%2C%22environment%22%3A%22production%22%2C%22baseURL%22%3A%22%2F%22%2C%22rootURL%22%3A%22%2F%22%2C%22locationType%22%3A%22auto%22%2C%22EmberENV%22%3A%7B%22cdnUrl%22%3A%22https%3A%2F%2Fassetscdn-wchat.freshchat.com%2Fstatic%2F%22%2C%22FEATURES%22%3A%7B%7D%2C%22EXTEND_PROTOTYPES%22%3A%7B%22Date%22%3Afalse%7D%2C%22cdnEnabled%22%3Atrue%2C%22_APPLICATION_TEMPLATE_WRAPPER%22%3Afalse%2C%22_DEFAULT_ASYNC_OBSERVERS%22%3Atrue%2C%22_JQUERY_INTEGRATION%22%3Afalse%2C%22_TEMPLATE_ONLY_GLIMMER_COMPONENTS%22%3Atrue%7D%2C%22APP%22%3A%7B%22name%22%3A%22hotline-web%22%2C%22version%22%3A%2213.0.1.0%2B39588581%22%7D%2C%22contentSecurityPolicy%22%3A%7B%22style-src%22%3A%22'unsafe-inline'%20*%22%2C%22font-src%22%3A%22'self'%20*%20data%3A%22%2C%22img-src%22%3A%22'self'%20*%20data%3A%22%2C%22connect-src%22%3A%22'self'%20*%22%2C%22script-src%22%3A%22'self'%20'unsafe-eval'%20'unsafe-inline'%20https%3A%2F%2F*.freshchat.com%20https%3A%2F%2F*.freshpori.com%20https%3A%2F%2Frts-static-prod.freshworksapi.com%2Fus%2Frts-min.js%22%2C%22child-src%22%3A%22'self'%20*%20blob%3A%22%2C%22media-src%22%3A%22'self'%20https%3A%2F%2F*.freshchat.com%20https%3A%2F%2F*.freshpori.com%22%2C%22manifest-src%22%3A%22'self'%20https%3A%2F%2F*.freshchat.com%20https%3A%2F%2F*.freshpori.com%22%2C%22default-src%22%3A%5B%22'none'%22%5D%7D%2C%22contentSecurityPolicyHeader%22%3A%22Content-Security-Policy%22%2C%22contentSecurityPolicyMeta%22%3Atrue%2C%22outputPath%22%3A%22static%22%2C%22socket%22%3A%7B%22domain%22%3A%7B%22production%22%3A%22rts-us-fcht.freshworksapi.com%22%2C%22staging%22%3A%22pubsub.rtschannel.io%22%2C%22default%22%3A%22pubsub.rtschannel.io%22%7D%2C%22supportAppId%22%3A%5B%22228339547221745%22%2C%221308634746881%22%5D%2C%22albDomain%22%3A%7B%22production%22%3A%22rts-us-fcht.freshworksapi.com%22%2C%22staging%22%3A%22pubsub.rtschannel.io%22%2C%22default%22%3A%22pubsub.rtschannel.io%22%7D%2C%22protocol%22%3A%22https%3A%2F%2F%22%2C%22subDelay%22%3A15000%2C%22reconnectDelay%22%3A10%7D%2C%22webpush%22%3A%7B%22domain%22%3A%7B%22production%22%3A%22%7BappName%7D.webpush.freshchat.com%22%2C%22staging%22%3A%22%22%2C%22crm%22%3A%7B%22production%22%3A%22%7BappName%7D.wchat.webpush.myfreshworks.com%22%2C%22staging%22%3A%22%7BappName%7D.wchat.webpush.int.myfreshworks.dev%22%7D%7D%2C%22protocol%22%3A%22https%3A%2F%2F%22%7D%2C%22hotlineEnv%22%3A%7B%22type%22%3A%22production%22%2C%22name%22%3A%22local%22%7D%2C%22datadog%22%3A%5B%221D7M3R46PW%22%5D%2C%22cdn%22%3A%7B%22enabled%22%3A%7B%22forAssets%22%3Atrue%2C%22forApi%22%3Atrue%7D%2C%22assets%22%3A%22assetscdn-%22%2C%22api%22%3A%22apicdn-%22%2C%22domain%22%3A%7B%22production%22%3A%22.freshchat.com%2F%7BdeploymentPath%7D%22%2C%22staging%22%3A%22%22%7D%2C%22subDomain%22%3A%22wchat%22%2C%22protocol%22%3A%22https%3A%2F%2F%22%7D%2C%22rtsCdnUrl%22%3A%7B%22staging%22%3A%22https%3A%2F%2Frts-staging-js.s3.ap-south-1.amazonaws.com%2Fstaging%2Frts.js%22%2C%22production%22%3A%22https%3A%2F%2Frts-static-prod.freshworksapi.com%2Fus%2Frts-min.js%22%7D%2C%22exportApplicationGlobal%22%3Afalse%7D">
+<meta http-equiv="Content-Security-Policy" content="style-src 'unsafe-inline' *; font-src 'self' * data:; img-src 'self' * data:; connect-src 'self' *; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://*.freshchat.com https://*.freshpori.com https://rts-static-prod.freshworksapi.com/us/rts-min.js; child-src 'self' * blob:; media-src 'self' https://*.freshchat.com https://*.freshpori.com; manifest-src 'self' https://*.freshchat.com https://*.freshpori.com; default-src 'none'; ">
+
+    <link rel="stylesheet" href="home_data/vendor-cb48eae2d25974cb9e453b74e43d0225.css">
+    <link rel="stylesheet" href="home_data/fc_web_widget-f00366f25695c4fc577465a78e29aecc.css">
+
+    
+  <script src="home_data/rts-min.js"></script></head>
+  <body class="webchat ember-application" dir="ltr" data-new-gr-c-s-check-loaded="8.878.0" data-gr-ext-installed="">
+    
+
+    <script src="home_data/vendor-24c1eeaffd83e98caaf78005d1c85dff.js"></script>
+    <script src="home_data/fc_web_widget-6c281030b531a50de5150c163ace8f48.js"></script>
+
+    <div id="ember-basic-dropdown-wormhole"></div>
+  
+
+<!---->  <div aria-live="polite" id="ember3" class="content-vp ember-view"><!----><div class="hotline-launcher     " tabindex="-1">
+  <div class="viewport h-chat-custom ">
+    <div class="widget-status animated fadeInUp faster" aria-live="polite">
+      <div class="help-text  dn">
+<!----></div>
+
+    </div>
+    <div id="ember484" class="h-channel ember-view"><div class="home-content">
+  <div class="h-header">
+    <div class="title fadeIn  gradient">
+      <div class="logo">
+          <img class="animated zoomIn faster" src="home_data/freshchat-line-1cc53925eae96a19142ee7b807093272.svg" alt="Freshchat">
+      </div>
+    </div>
+  </div>
+  <div class="body sections faq-body ">
+    <div class="dummy-bar gradient " style="height: 1.5rem;"></div>
+    <div class="card-layout scroll-section">
+      <div class="channel-section animated fadeInUp delay faster h-categories">
+  <div class="channel-title">
+    <div class="list-sub-title">
+      Message Us
+    </div>
+  </div>
+  <ul class="channel-list">
+      <li>
+        <div id="ember486" class="channel animated fadeInLeft enabled-agent-typing-indicator ember-view"><a href="https://wchat.freshchat.com/home/163761" id="ember487" class="ember-view channel-link">
+  <div class="h-category-item">
+    <div class="h-category-icon">
+        <span class="category-content-wrap theme-3">
+          <span class="category-content">
+            G
+          </span>
+        </span>
+    </div>
+    <div class="channel-names">
+      <div class="channel-content">
+        <div class="h-category-detail ">
+          <h1 class="channel-name">
+            General Questions
+          </h1>
+          <h2 class="welcome-text ">
+              <div class="ui-agent-typing-indicator hidden" aria-label="Agent is typing">
+  <span class="indicator-dot" aria-hidden="true"></span>
+  <span class="indicator-dot" aria-hidden="true"></span>
+  <span class="indicator-dot" aria-hidden="true"></span>
+</div>
+
+            <div class="message-text">
+                <div class="last-msg-preview">
+                  <div id="ember488" class="ember-view">  <div class="h-comment    ">
+<!---->
+      <div id="ember489" class="fc-ui-unity-message-bubble ember-view">  <div class="h-message-text ">Hello there! Thank you for contacting us.</div>
+<!----></div>
+ 
+  </div>
+</div>
+                </div>
+                          </div>
+          </h2>
+        </div>
+        <div class="h-conv-user">
+<!---->        </div>
+      </div>
+    </div>
+
+  </div>
+</a></div>
+        <div class="border-bottom"></div>
+      </li>
+      <li>
+        <div id="ember491" class="channel animated fadeInLeft enabled-agent-typing-indicator ember-view"><a href="https://wchat.freshchat.com/home/163762" id="ember492" class="ember-view channel-link">
+  <div class="h-category-item">
+    <div class="h-category-icon">
+        <span class="category-content-wrap theme-1">
+          <span class="category-content">
+            I
+          </span>
+        </span>
+    </div>
+    <div class="channel-names">
+      <div class="channel-content">
+        <div class="h-category-detail ">
+          <h1 class="channel-name">
+            I want to Buy!
+          </h1>
+          <h2 class="welcome-text ">
+              <div class="ui-agent-typing-indicator hidden" aria-label="Agent is typing">
+  <span class="indicator-dot" aria-hidden="true"></span>
+  <span class="indicator-dot" aria-hidden="true"></span>
+  <span class="indicator-dot" aria-hidden="true"></span>
+</div>
+
+            <div class="message-text">
+                <div class="last-msg-preview">
+                  <div id="ember493" class="ember-view">  <div class="h-comment    ">
+<!---->
+      <div id="ember494" class="fc-ui-unity-message-bubble ember-view">  <div class="h-message-text ">Hello there! Thank you for contacting us.</div>
+<!----></div>
+ 
+  </div>
+</div>
+                </div>
+                          </div>
+          </h2>
+        </div>
+        <div class="h-conv-user">
+<!---->        </div>
+      </div>
+    </div>
+
+  </div>
+</a></div>
+        <div class="border-bottom"></div>
+      </li>
+      <li>
+        <div id="ember496" class="channel animated fadeInLeft enabled-agent-typing-indicator ember-view"><a href="https://wchat.freshchat.com/home/163763" id="ember497" class="ember-view channel-link">
+  <div class="h-category-item">
+    <div class="h-category-icon">
+        <span class="category-content-wrap theme-3">
+          <span class="category-content">
+            L
+          </span>
+        </span>
+    </div>
+    <div class="channel-names">
+      <div class="channel-content">
+        <div class="h-category-detail ">
+          <h1 class="channel-name">
+            Lost my Password
+          </h1>
+          <h2 class="welcome-text ">
+              <div class="ui-agent-typing-indicator hidden" aria-label="Agent is typing">
+  <span class="indicator-dot" aria-hidden="true"></span>
+  <span class="indicator-dot" aria-hidden="true"></span>
+  <span class="indicator-dot" aria-hidden="true"></span>
+</div>
+
+            <div class="message-text">
+                <div class="last-msg-preview">
+                  <div id="ember498" class="ember-view">  <div class="h-comment    ">
+<!---->
+      <div id="ember499" class="fc-ui-unity-message-bubble ember-view">  <div class="h-message-text ">Hello there! Thank you for contacting us.</div>
+<!----></div>
+ 
+  </div>
+</div>
+                </div>
+                          </div>
+          </h2>
+        </div>
+        <div class="h-conv-user">
+<!---->        </div>
+      </div>
+    </div>
+
+  </div>
+</a></div>
+        <div class="border-bottom"></div>
+      </li>
+      <li>
+        <div id="ember501" class="channel animated fadeInLeft enabled-agent-typing-indicator ember-view"><a href="https://wchat.freshchat.com/home/163760" id="ember502" class="ember-view channel-link">
+  <div class="h-category-item">
+    <div class="h-category-icon">
+        <span class="category-content-wrap theme-2">
+          <span class="category-content">
+            B
+          </span>
+        </span>
+    </div>
+    <div class="channel-names">
+      <div class="channel-content">
+        <div class="h-category-detail ">
+          <h1 class="channel-name">
+            Billing Issues
+          </h1>
+          <h2 class="welcome-text ">
+              <div class="ui-agent-typing-indicator hidden" aria-label="Agent is typing">
+  <span class="indicator-dot" aria-hidden="true"></span>
+  <span class="indicator-dot" aria-hidden="true"></span>
+  <span class="indicator-dot" aria-hidden="true"></span>
+</div>
+
+            <div class="message-text">
+                <div class="last-msg-preview">
+                  <div id="ember503" class="ember-view">  <div class="h-comment    ">
+<!---->
+      <div id="ember504" class="fc-ui-unity-message-bubble ember-view">  <div class="h-message-text ">Hello there, Thank you for contacting us.</div>
+<!----></div>
+ 
+  </div>
+</div>
+                </div>
+                          </div>
+          </h2>
+        </div>
+        <div class="h-conv-user">
+<!---->        </div>
+      </div>
+    </div>
+
+  </div>
+</a></div>
+        <div class="border-bottom"></div>
+      </li>
+      <li>
+        <div id="ember506" class="channel animated fadeInLeft enabled-agent-typing-indicator ember-view"><a href="https://wchat.freshchat.com/home/163764" id="ember507" class="ember-view channel-link">
+  <div class="h-category-item">
+    <div class="h-category-icon">
+        <span class="category-content-wrap theme-2">
+          <span class="category-content">
+            R
+          </span>
+        </span>
+    </div>
+    <div class="channel-names">
+      <div class="channel-content">
+        <div class="h-category-detail ">
+          <h1 class="channel-name">
+            Report a Bug
+          </h1>
+          <h2 class="welcome-text ">
+              <div class="ui-agent-typing-indicator hidden" aria-label="Agent is typing">
+  <span class="indicator-dot" aria-hidden="true"></span>
+  <span class="indicator-dot" aria-hidden="true"></span>
+  <span class="indicator-dot" aria-hidden="true"></span>
+</div>
+
+            <div class="message-text">
+                <div class="last-msg-preview">
+                  <div id="ember508" class="ember-view">  <div class="h-comment    ">
+<!---->
+      <div id="ember509" class="fc-ui-unity-message-bubble ember-view">  <div class="h-message-text ">Hello there! Thank you for contacting us.</div>
+<!----></div>
+ 
+  </div>
+</div>
+                </div>
+                          </div>
+          </h2>
+        </div>
+        <div class="h-conv-user">
+<!---->        </div>
+      </div>
+    </div>
+
+  </div>
+</a></div>
+        <div class="border-bottom"></div>
+      </li>
+      <li>
+        <div id="ember511" class="channel animated fadeInLeft enabled-agent-typing-indicator ember-view"><a href="https://wchat.freshchat.com/home/163765" id="ember512" class="ember-view channel-link">
+  <div class="h-category-item">
+    <div class="h-category-icon">
+        <span class="category-content-wrap theme-4">
+          <span class="category-content">
+            T
+          </span>
+        </span>
+    </div>
+    <div class="channel-names">
+      <div class="channel-content">
+        <div class="h-category-detail ">
+          <h1 class="channel-name">
+            Technical Help / Issue
+          </h1>
+          <h2 class="welcome-text ">
+              <div class="ui-agent-typing-indicator hidden" aria-label="Agent is typing">
+  <span class="indicator-dot" aria-hidden="true"></span>
+  <span class="indicator-dot" aria-hidden="true"></span>
+  <span class="indicator-dot" aria-hidden="true"></span>
+</div>
+
+            <div class="message-text">
+                <div class="last-msg-preview">
+                  <div id="ember513" class="ember-view">  <div class="h-comment    ">
+<!---->
+      <div id="ember514" class="fc-ui-unity-message-bubble ember-view">  <div class="h-message-text ">Hello there! Thank you for contacting us.</div>
+<!----></div>
+ 
+  </div>
+</div>
+                </div>
+                          </div>
+          </h2>
+        </div>
+        <div class="h-conv-user">
+<!---->        </div>
+      </div>
+    </div>
+
+  </div>
+</a></div>
+        <div class="border-bottom"></div>
+      </li>
+      <li>
+        <div id="ember516" class="channel animated fadeInLeft enabled-agent-typing-indicator ember-view"><a href="https://wchat.freshchat.com/home/126556" id="ember517" class="ember-view channel-link">
+  <div class="h-category-item">
+    <div class="h-category-icon">
+        <span class="category-content-wrap theme-1">
+          <span class="category-content">
+            A
+          </span>
+        </span>
+    </div>
+    <div class="channel-names">
+      <div class="channel-content">
+        <div class="h-category-detail ">
+          <h1 class="channel-name">
+            Account Issues
+          </h1>
+          <h2 class="welcome-text ">
+              <div class="ui-agent-typing-indicator hidden" aria-label="Agent is typing">
+  <span class="indicator-dot" aria-hidden="true"></span>
+  <span class="indicator-dot" aria-hidden="true"></span>
+  <span class="indicator-dot" aria-hidden="true"></span>
+</div>
+
+            <div class="message-text">
+                <div class="last-msg-preview">
+                  <div id="ember518" class="ember-view">  <div class="h-comment    ">
+<!---->
+      <div id="ember519" class="fc-ui-unity-message-bubble ember-view">  <div class="h-message-text ">Hello there! Thank you for contacting us.</div>
+<!----></div>
+ 
+  </div>
+</div>
+                </div>
+                          </div>
+          </h2>
+        </div>
+        <div class="h-conv-user">
+<!---->        </div>
+      </div>
+    </div>
+
+  </div>
+</a></div>
+        <div class="border-bottom"></div>
+      </li>
+  </ul>
+</div>
+<!---->
+<!---->      
+      <div class="bottom-gradient" style="visibility: hidden;"></div>
+    </div>
+  </div>
+</div>
+  <div class="footer-note animated slideInUp faster ">
+    Powered by &nbsp;<img class="icon" src="home_data/powered_by-0c8153a271e35c5276c4d386d7cdda30.png" alt="Powered by"> &nbsp;
+    <a href="https://www.freshworks.com/live-chat-software/freshchat/?utm_source=messenger&amp;utm_medium=referral&amp;utm_campaign=chat&amp;app_id=347187178664619&amp;app_name=SonagaTech" class="product" target="_blank" rel="noopener noreferrer">
+      Freshworks
+    </a>
+</div>
+
+</div>
+  </div>
+<!----></div>
+
+<!---->
+<div class="d-hotline h-btn animated zoomIn faster  dn " tabindex="0" role="button" data-ember-action="" data-ember-action-4="4">
+  <div class="chat-content" aria-label="Chat">
+    <i class="icon-ic_chat_icon"></i>
+  </div>
+    <div class=" ">
+      <span aria-hidden="true">
+        
+      </span>
+    </div>
+</div>
+<style type="text/css">
+
+  
+
+  html, body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Segoe UI Emoji', 'Roboto', 'Oxygen', 'Ubuntu', 'Fira Sans', 'Droid Sans', 'Cantarell', 'Helvetica Neue', sans-serif !important;
+  }
+  .h-chat-custom .odd .h-conv .h-comment,
+  .h-chat-custom .h-channel .h-header,
+  .h-chat-custom .h-channel .dummy-bar,
+  .h-chat-custom .h-conv .h-header,
+  .h-chat-custom .odd .h-conv .h-comment,
+  .h-chat-custom .h-conv div.body div.message-container.odd span.chat-msg,
+  .iframe-modal .h-modal-notes .modal-header,
+  .h-chat-custom .odd .h-conv .h-comment.file-attached .h-message-text,
+  .h-chat-custom .odd .h-conv .h-comment.media-message .h-message-text {
+    background-color: #6474ba !important;
+  }
+
+  .h-chat-custom .odd .h-conv .h-comment .h-message-text a {
+    color: #ffffff !important;
+  }
+  
+  .h-chat-custom .h-channel .h-header {
+    border: 0.1px solid #6474ba !important;
+  }
+
+  .h-chat-custom .h-channel .h-header .icon, .h-chat-custom .h-conv .h-header .icon,
+  .h-chat-custom .h-channel .h-header .conv-title, .h-chat-custom .h-conv .h-header .conv-title,
+  .h-chat-custom .h-channel .h-header .ic-back, .h-chat-custom .h-conv .h-header .ic-back,
+  .h-chat-custom .h-channel .h-header .title, .h-chat-custom .h-conv .h-header .title,
+  .h-chat-custom .odd .h-conv .h-comment,
+  .h-chat-custom .h-conv div.body div.message-container.odd span.chat-msg,
+  .iframe-modal .h-modal-notes .modal-header .frame-title,
+  .iframe-modal .h-modal-notes .modal-header .h-close i,
+  .preview-bubble {
+    color: #ffffff !important;
+  }
+
+  .h-chat-custom .h-conv div.body div.message-container.odd span.arrow.right {
+    border-left-color: #6474ba !important;
+  }
+
+  .h-chat-custom div.h-conv div.body div.h-conv-chat {
+    background-image: url("https://assetscdn-wchat.freshchat.com/static/assets/images/texture_background_1-9f6bed8189e4c854889928d5517fc21c.png") !important;
+  }
+  .preview-wrapper .top-border{
+    border-top: 4px solid #6474ba;
+  }
+
+  .reply-options .reply-option-button,
+  .h-reply-wrapper .h-reply-button .h-img-button {
+    border: 1px solid #6474ba;
+  }
+
+  .reply-options .reply-option-button:hover,
+  .h-reply-wrapper .h-reply-button .h-img-button:hover {
+    background-color: #6474ba !important;
+    color: #ffffff;
+  }
+
+  .d-hotline {
+    background-color: #6474ba !important;
+    color: #ffffff !important;
+    border-color: transparent #6474ba transparent transparent;
+  }
+  .loader {
+    border-top: 1em solid rgba(#6474ba, 0.4);
+    border-right: 1.05em solid #6474ba;
+    border-bottom: 1.05em solid #6474ba;
+    border-left: 1.05em solid #6474ba;
+  }
+
+  .article-modal .modal-footer .h-message-us-btn:hover,
+  .article-modal .modal-footer .article_vote:hover {
+    background-color: #6474ba !important;
+    color : #ffffff !important;
+  }
+
+  /* .article-content .modal-footer .h-message-us-btn:hover,
+  .article-content .modal-footer .article_vote:hover {
+    background-color: #6474ba !important;
+    color : #ffffff !important;
+  } */
+
+  .tabs .tabs-inner:after{
+    background-color: #6474ba !important;
+  }
+
+  .chat-btn:hover{
+    background-color: #6474ba !important;
+    color: #ffffff !important;
+    border: 0 !important;
+  }
+
+  .submit-rating .submit.btn {
+    background-color: #6474ba !important;
+    color: #ffffff !important;
+  }
+
+  .send-offline-reply .send-message {
+    background-color: #6474ba !important;
+    color: #ffffff !important;
+  }
+
+  .h-comment.h-wrapped-article .articles-listview .article-showmore,
+  .fc-conversation-view div.body .h-chat-window .fc-agent-profile .u-social-network div i{
+    color: #6474ba !important;
+  }
+
+  .h-chat-custom .odd .h-conv .h-comment.file-attached,
+  .h-chat-custom .odd .h-conv .h-comment.media-message {
+    background-color: unset !important;
+  }
+
+  .h-chat-custom .odd .h-conv .h-comment.file-attached .text-file-preview .text-haze-holder{
+    background-color: #6474ba !important;
+    color: #ffffff !important;
+  }
+
+  .h-chat-custom .odd .h-conv .h-comment.file-attached .text-file-preview .text-haze-holder .bottom-gradient {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #6474ba 100%) !important;
+  }
+
+  .article-content .fc_web_modal_closed .article-header-section .progress-bar {
+    background-color: #6474ba !important;
+  }
+
+  .preview-container .h-reply-button .h-button-area button,
+  .h-reply-wrapper .h-reply-button .h-img-button {
+    border-color: #6474ba !important;
+  }
+
+  .h-header .jwt-error-message {
+    color: #44412e !important;
+    background-color: #ffac00 !important;
+  }
+
+  .cal-time-slot:hover {
+      background-color: #6474ba;
+  }
+  .calendar-picker-minified .cal-picker-conf-view .confirm-button-holder .cal-confirm-button {
+      background-color: #6474ba;
+  }
+
+  .meeting-frag-holder {
+    background-color: #6474ba !important;
+  }
+  .meeting-frag-holder .event-header {
+    color: #ffffff;
+  }
+  .h-conv-chat .h-chat .h-conv .h-comment .event-fragment .event-body .event-timings.actionable a{
+      color: #6474ba;
+  }
+
+  .h-conv-chat .h-chat .h-conv .h-comment.emojis-1,
+  .h-conv-chat .h-chat .h-conv .h-comment.emojis-2,
+  .h-conv-chat .h-chat .h-conv .h-comment.emojis-3 {
+    background-color: transparent !important;;
+  }
+
+  .h-reply-wrapper .ui-agent-typing-indicator {
+    background-color: #6474ba;
+  }
+
+  .h-reply-wrapper .ui-agent-typing-indicator .indicator-dot {
+    background-color: #ffffff;
+  }
+
+  .fc-mobile-close.minimize i.icon-ic_close{
+    color: #ffffff;
+  }
+</style>
+</div>
+</body></html>

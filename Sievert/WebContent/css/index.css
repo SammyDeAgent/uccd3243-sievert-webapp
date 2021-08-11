@@ -1,0 +1,14 @@
+.jumbotron {
+  color: white;
+  background-image: url("../img/pharmacy.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.pp1 {
+	line-height: 2rem;
+	columns: 250px 3;
+	column-gap: 40px;
+}
